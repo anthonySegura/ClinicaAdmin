@@ -9,4 +9,56 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="tec.farmaciaadmin.EditarProducto">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/agregarDescripcion"
+            android:id="@+id/editarDescripcion"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/agregarPrecio"
+            android:id="@+id/editarPrecio" />
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/agregarNombre"
+            android:id="@+id/editarNombre"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_height="wrap_content"
+                android:text="@string/btnAgregarGuardar"
+                android:id="@+id/btnEditarGuardar" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_height="wrap_content"
+                android:text="@string/btnAgregarCancelar"
+                android:id="@+id/btnEditarCancelar" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

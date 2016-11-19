@@ -5,4 +5,6 @@
     <string name="agregarNombre">Nombre</string>
     <string name="btnAgregarGuardar">Guardar</string>
     <string name="btnAgregarCancelar">Cancelar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
 </resources>

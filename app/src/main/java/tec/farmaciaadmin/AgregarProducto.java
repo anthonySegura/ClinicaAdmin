@@ -2,6 +2,8 @@ package tec.farmaciaadmin;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +27,7 @@ public class AgregarProducto extends AppCompatActivity {
         guardar = (Button)findViewById(R.id.agregarBtnGuardar);
         cancelar = (Button)findViewById(R.id.agregarBtnCancelar);
 
+
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +35,8 @@ public class AgregarProducto extends AppCompatActivity {
             }
         });
     }
-    
+
+
     private void cerrar(){
         this.finish();
     }
