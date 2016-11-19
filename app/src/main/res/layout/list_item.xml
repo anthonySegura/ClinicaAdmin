@@ -9,13 +9,12 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="7">
+        android:weightSum="6">
 
 
         <LinearLayout
-            android:layout_marginTop="10dp"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="6">
 
@@ -23,61 +22,68 @@
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
+                android:text="Nombre"
                 android:id="@+id/nameText" />
 
             <TextView
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/descripcionText" />
+                android:text="Telefono"
+                android:id="@+id/telefonoText" />
             <TextView
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
+                android:text="ultimoLoginText"
                 android:id="@+id/ultimoLogin"/>
             <TextView
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
+                android:text="fechaRegistroText"
                 android:id="@+id/fechaRegistro"/>
                 />
         </LinearLayout>
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <Button
+                android:orientation="horizontal">
+                <ImageButton
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/editar"
-                    android:textColor="@color/blanco"
                     android:id="@+id/bEditar"
-                    android:background="@drawable/btn_circle"/>
+                    android:background="@mipmap/ic_edit"/>
 
-                <Button
+                <ImageButton
                     android:layout_marginTop="3dp"
                     android:layout_marginBottom="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/blanco"
-                    android:text="@string/eliminar"
                     android:id="@+id/bEliminar"
-                    android:background="@drawable/btn_circle">
-                </Button>
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+                    android:background="@mipmap/ic_delete"/>
 
+                <ImageButton
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bLlamar"
+                    android:background="@mipmap/ic_call"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
