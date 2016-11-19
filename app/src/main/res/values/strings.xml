@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Farmacia</string>
+    <string name="agregarDescripcion">Descripcion</string>
+    <string name="agregarPrecio">Precio</string>
+    <string name="agregarNombre">Nombre</string>
+    <string name="btnAgregarGuardar">Guardar</string>
+    <string name="btnAgregarCancelar">Cancelar</string>
+</resources>

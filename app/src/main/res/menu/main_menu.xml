@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/agregar"
+        android:orderInCategory="0"
+        android:title="Agregar"
+        android:icon="@android:drawable/ic_menu_add"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/verUsuarios"
+        android:orderInCategory="0"
+        android:title="Ver Usuarios"
+        android:icon="@android:drawable/ic_menu_view"
+        app:showAsAction="always|withText" />
+</menu>
