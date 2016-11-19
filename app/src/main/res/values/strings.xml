@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Farmacia</string>
-    <string name="agregarDescripcion">Descripcion</string>
-    <string name="agregarPrecio">Precio</string>
-    <string name="agregarNombre">Nombre</string>
-    <string name="btnAgregarGuardar">Guardar</string>
-    <string name="btnAgregarCancelar">Cancelar</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="precio">Precio</string>
+    <string name="nombre">Nombre</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
     <string name="eliminar">Eliminar</string>
     <string name="editar">Editar</string>
+    <string name="nuevo">Nuevo</string>
+    <string name="contra">Contraseña</string>
+    <string name="telefono"> Número de teléfono</string>
 </resources>

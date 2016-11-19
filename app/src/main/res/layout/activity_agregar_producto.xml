@@ -20,7 +20,7 @@
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/agregarDescripcion"
+            android:hint="@string/descripcion"
             android:id="@+id/agregarDescripcion"
             android:layout_gravity="center_horizontal" />
 
@@ -28,7 +28,7 @@
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/agregarPrecio"
+            android:hint="@string/precio"
             android:inputType="number"
             android:id="@+id/agregarPrecio"
             android:layout_gravity="center_horizontal" />
@@ -37,7 +37,7 @@
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/agregarNombre"
+            android:hint="@string/nombre"
             android:id="@+id/agregarNombre"
             android:layout_gravity="center_horizontal" />
 
@@ -51,13 +51,13 @@
                 android:layout_width="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_height="wrap_content"
-                android:text="@string/btnAgregarGuardar"
+                android:text="@string/guardar"
                 android:id="@+id/agregarBtnGuardar" />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_height="wrap_content"
-                android:text="@string/btnAgregarCancelar"
+                android:text="@string/cancelar"
                 android:id="@+id/agregarBtnCancelar" />
         </LinearLayout>
 
