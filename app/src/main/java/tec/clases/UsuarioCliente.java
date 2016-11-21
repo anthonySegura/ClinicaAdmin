@@ -6,11 +6,21 @@ package tec.clases;
 
 public class UsuarioCliente extends Usuario{
 
+    private String username;
     private String fechaRegistro;
     private String ultimoLogin;
 
-    public UsuarioCliente(String nombre, String password, String telefono) {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public UsuarioCliente(String username, String nombre, String password, String telefono) {
         super(nombre, password, telefono);
+        this.username = username;
     }
 
     public String getFechaRegistro() {

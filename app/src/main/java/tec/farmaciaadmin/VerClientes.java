@@ -1,22 +1,29 @@
 package tec.farmaciaadmin;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
+import tec.Retrofit.RetrofitClient;
 import tec.clases.UsuarioCliente;
 
 public class VerClientes extends AppCompatActivity {
 
 
     //Clientes de prueba
-    UsuarioCliente c1 = new UsuarioCliente("Nombre Fulano", " ", "123456");
-    ArrayList<UsuarioCliente> arrayUsuarioClientes = new ArrayList<>();
 
     ListView clientes;
 
@@ -25,12 +32,10 @@ public class VerClientes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_clientes);
-        c1.setFechaRegistro("Fecha de registro 10/10/16");
-        c1.setUltimoLogin("Ultimo Login 18/11/16");
-        arrayUsuarioClientes.add(c1);
+        getClients();
         clientes = (ListView)findViewById(R.id.clientes);
-        myAdapter adapter = new myAdapter(this, arrayUsuarioClientes);
-        clientes.setAdapter(adapter);
+        //ClientAdapter adapter = new ClientAdapter(this, arrayUsuarioClientes);
+
     }
 
     @Override
@@ -51,5 +56,45 @@ public class VerClientes extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private ClientAdapter getAdapter(ArrayList<UsuarioCliente> data){
+        ClientAdapter adapter = new ClientAdapter(this, data);
+        return adapter;
+    }
+
+    private void getClients(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(RetrofitClient.URL_BASE)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitClient retrofitClient = retrofit.create(RetrofitClient.class);
+        Call<List<UsuarioCliente>> call = retrofitClient.cargarClientes();
+
+        call.enqueue(new Callback<List<UsuarioCliente>>() {
+            @Override
+            public void onResponse(Response<List<UsuarioCliente>> response, Retrofit retrofit) {
+
+                List<UsuarioCliente> clientes_data = response.body();
+                ArrayList<UsuarioCliente> data = new ArrayList<UsuarioCliente>();
+
+                for (UsuarioCliente usr : clientes_data){
+                    UsuarioCliente newUsr = new UsuarioCliente(usr.getUsername(), usr.getNombre(), " ", usr.getTelefono());
+                    newUsr.setFechaRegistro(usr.getFechaRegistro());
+                    newUsr.setUltimoLogin(usr.getUltimoLogin());
+                    data.add(newUsr);
+                }
+
+                ClientAdapter adapter = getAdapter(data);
+                clientes.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast toast = Toast.makeText(getApplication(), "Error Mamón", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
     }
 }

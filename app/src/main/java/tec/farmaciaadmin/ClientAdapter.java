@@ -16,12 +16,12 @@ import java.util.ArrayList;
 
 import tec.clases.UsuarioCliente;
 
-public class myAdapter extends ArrayAdapter<UsuarioCliente> {
+public class ClientAdapter extends ArrayAdapter<UsuarioCliente> {
 
     private final Context context;
     private final ArrayList<UsuarioCliente> itemsArrayList;
 
-    public myAdapter(Context context, ArrayList<UsuarioCliente> itemsArrayList) {
+    public ClientAdapter(Context context, ArrayList<UsuarioCliente> itemsArrayList) {
 
         super(context, R.layout.list_item, itemsArrayList);
 
@@ -73,14 +73,12 @@ public class myAdapter extends ArrayAdapter<UsuarioCliente> {
         dialogo1.setCancelable(false);
         dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
-
                 //Eliminar del WS
 
             }
         });
         dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
-
 
             }
         });

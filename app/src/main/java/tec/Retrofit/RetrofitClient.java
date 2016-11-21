@@ -10,6 +10,7 @@ import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Query;
 import tec.clases.Medicina;
+import tec.clases.UsuarioCliente;
 
 /**
  * Created by anthony on 20/11/16.
@@ -26,6 +27,12 @@ public interface RetrofitClient {
     @GET("BorrarMedicamento")
     Call<String> borrarMedicamento(@Query("nombre") String id);
 
+    @GET("GetAllClients")
+    Call<List<UsuarioCliente>> cargarClientes();
+
+    @GET("BorrarUsuario")
+    Call<String> borrarUsuario(@Query("username") String id);
+
     @FormUrlEncoded
     @POST("CreateProducto")
     Call<Medicina> agregarMedicamento(
@@ -33,7 +40,6 @@ public interface RetrofitClient {
             @Field("descripcion") String descripcion,
             @Field("cantidad") int cantidad,
             @Field("precio") String precio);
-
 
 
 }
