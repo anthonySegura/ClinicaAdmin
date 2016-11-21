@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         //Evento de los items del listView
         medicinas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
 
                 //PopUp Menu
                 PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
@@ -49,13 +49,15 @@ public class MainActivity extends AppCompatActivity {
                 //Acciones del menu
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
+
                         if (item.getItemId() == R.id.popEditar){
                             Intent intent = new Intent(getApplicationContext(), EditarProducto.class);
                             startActivity(intent);
                         }
                         else if (item.getItemId() == R.id.popEliminar){
                             //Accion eliminar
-                            getProducts();
+                            String id = medicinas.getAdapter().getItem(position).toString();
+                            eliminarMedicina(id);
                         }
                         return true;
                     }
@@ -100,10 +102,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void llenarListView(String [] datos){
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos);
-        medicinas.setAdapter(adapter);
-    }
+
 
     private void getProducts(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -130,7 +129,32 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Throwable t) {
-                Toast toast = Toast.makeText(getApplicationContext(), "ERROR MAMÓN", Toast.LENGTH_LONG);
+
+                Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.error_conexion), Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
+
+    }
+
+    private void eliminarMedicina(String id){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(RetrofitClient.URL_BASE)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitClient retrofitClient = retrofit.create(RetrofitClient.class);
+        Call<String> call = retrofitClient.borrarMedicamento(id);
+
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Response<String> response, Retrofit retrofit) {
+                getProducts();
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.error_conexion) ,Toast.LENGTH_LONG);
                 toast.show();
             }
         });
