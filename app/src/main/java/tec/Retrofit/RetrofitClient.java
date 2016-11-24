@@ -18,7 +18,7 @@ import tec.clases.UsuarioCliente;
 
 public interface RetrofitClient {
 
-    static final String URL_BASE = "http://10.0.2.2:8080/";
+    static final String URL_BASE = "http://ec2-35-163-108-171.us-west-2.compute.amazonaws.com/";
 
     //Metodos GET
 

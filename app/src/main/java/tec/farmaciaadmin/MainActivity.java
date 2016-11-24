@@ -151,6 +151,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private ArrayAdapter<String> getAdapter(String [] datos){
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos);
+        return adapter;
+    }
+
 
     /**
      * Carga todas las medicinas desde el WS en el listView
@@ -174,8 +179,7 @@ public class MainActivity extends AppCompatActivity {
                     datos[i] = medicinas_data.get(i).getNombreMedicamento();
                 }
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplication(), android.R.layout.simple_list_item_1, datos);
-                medicinas.setAdapter(adapter);
+                medicinas.setAdapter(getAdapter(datos));
             }
 
             @Override
