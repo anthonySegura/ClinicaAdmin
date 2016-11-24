@@ -1,6 +1,5 @@
 package tec.farmaciaadmin;
 
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,43 +15,49 @@ import retrofit.Retrofit;
 import tec.Retrofit.RetrofitClient;
 import tec.clases.UsuarioCliente;
 
-public class NuevoUsuario extends AppCompatActivity {
+public class EditarCliente extends AppCompatActivity {
 
     EditText nombre;
-    EditText passw;
-    EditText telefono;
     EditText username;
-    Button guardar;
-    Button cancelar;
+    EditText telefono;
+    EditText passw;
+    Button btnGuardar;
+    Button btnCancelar;
+    String oldId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nuevo_usuario);
+        setContentView(R.layout.activity_editar_cliente);
+        nombre = (EditText)findViewById(R.id.editarClienteNombre);
+        username = (EditText)findViewById(R.id.editarClienteUsername);
+        telefono = (EditText)findViewById(R.id.editarClienteTelefono);
+        passw = (EditText)findViewById(R.id.editarClientePassw);
 
-        nombre = (EditText)findViewById(R.id.nuevoClienteNombre);
-        passw = (EditText)findViewById(R.id.nuevoClientePassw);
-        telefono = (EditText)findViewById(R.id.nuevoClienteTelefono);
-        username = (EditText)findViewById(R.id.nuevoClienteUsername);
-        guardar = (Button)findViewById(R.id.nuevoClienteBtnGuardar);
-        cancelar = (Button)findViewById(R.id.nuevoClienteBtnCancelar);
+        nombre.setText(getIntent().getExtras().getString("nombre"));
+        username.setText(getIntent().getExtras().getString("username"));
+        oldId = username.getText().toString();
+        telefono.setText(getIntent().getExtras().getString("telefono"));
+        passw.setText(getIntent().getExtras().getString("passw"));
 
-        cancelar.setOnClickListener(new View.OnClickListener() {
+        btnGuardar = (Button)findViewById(R.id.editarClienteBtnGuardar);
+        btnCancelar = (Button)findViewById(R.id.editarClienteBtnCancelar);
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cerrar();
             }
         });
 
-        guardar.setOnClickListener(new View.OnClickListener() {
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String n = nombre.getText().toString();
                 String p = passw.getText().toString();
                 String t = telefono.getText().toString();
                 String u = username.getText().toString();
-
-                nuevoUsuario(n,u,t,p);
+                editar(n,oldId,u,t,p);
             }
         });
     }
@@ -61,27 +66,28 @@ public class NuevoUsuario extends AppCompatActivity {
         this.finish();
     }
 
-    private void nuevoUsuario(String nombre, String username, String telefono, String passw){
+
+    private void editar(String nombre, String username , String username2, String telefono, String passw){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(RetrofitClient.URL_BASE)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         RetrofitClient retrofitClient = retrofit.create(RetrofitClient.class);
-        Call<UsuarioCliente> call = retrofitClient.agregarCliente(nombre, username,telefono,passw);
-
+        Call<UsuarioCliente> call = retrofitClient.editarCliente(nombre, username, username2, telefono, passw);
         call.enqueue(new Callback<UsuarioCliente>() {
             @Override
             public void onResponse(Response<UsuarioCliente> response, Retrofit retrofit) {
-                System.out.println("OK");
+                System.out.println("Funciono");
                 cerrar();
             }
 
             @Override
             public void onFailure(Throwable t) {
-                Toast toast = Toast.makeText(getApplication(), getString(R.string.error_conexion), Toast.LENGTH_SHORT);
-                toast.show();
+                Toast toas = Toast.makeText(getApplicationContext(),getString(R.string.error_conexion), Toast.LENGTH_LONG);
+                toas.show();
             }
         });
+
     }
 }

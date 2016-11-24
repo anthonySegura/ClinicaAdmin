@@ -24,6 +24,14 @@
 
         <EditText
             android:layout_marginTop="20dp"
+            android:hint="@string/nombreUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nuevoClienteUsername"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:hint="@string/contra"
             android:inputType="textPassword"
@@ -39,6 +47,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/nuevoClienteTelefono"
             android:layout_gravity="center_horizontal" />
+
+        <Switch
+            android:layout_marginTop="60dp"
+            android:text="@string/Administrador"
+            android:layout_width="201dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch2" />
 
         <LinearLayout
             android:orientation="horizontal"

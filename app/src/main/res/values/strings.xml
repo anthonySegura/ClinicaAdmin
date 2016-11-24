@@ -12,4 +12,6 @@
     <string name="telefono"> Número de teléfono</string>
     <string name="error_conexion"> Error de conexion</string>
     <string name="cantidad"> Cantidad</string>
+    <string name="nombreUsuario"> Nombre de usuario</string>
+    <string name="Administrador"> Usuario Administrador</string>
 </resources>

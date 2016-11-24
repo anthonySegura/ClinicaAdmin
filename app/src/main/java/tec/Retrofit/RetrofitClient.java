@@ -20,6 +20,8 @@ public interface RetrofitClient {
 
     static final String URL_BASE = "http://10.0.2.2:8080/";
 
+    //Metodos GET
+
     @GET("GetAllProducts")
     Call<List<Medicina>> cargarMedicinas();
 
@@ -27,11 +29,15 @@ public interface RetrofitClient {
     @GET("BorrarMedicamento")
     Call<String> borrarMedicamento(@Query("nombre") String id);
 
+
     @GET("GetAllClients")
     Call<List<UsuarioCliente>> cargarClientes();
 
     @GET("BorrarUsuario")
     Call<String> borrarUsuario(@Query("username") String id);
+
+
+    //Metodos POST
 
     @FormUrlEncoded
     @POST("CreateProducto")
@@ -41,5 +47,35 @@ public interface RetrofitClient {
             @Field("cantidad") int cantidad,
             @Field("precio") String precio);
 
+
+    @FormUrlEncoded
+    @POST("CreateClient")
+    Call<UsuarioCliente> agregarCliente(
+            @Field("nombre") String nombre,
+            @Field("username") String username,
+            @Field("telefono") String telefono,
+            @Field("passw") String passw
+    );
+
+
+    @FormUrlEncoded
+    @POST("UpdateClient")
+    Call<UsuarioCliente> editarCliente(
+            @Field("nombre") String nombre,
+            @Field("username") String username,
+            @Field("username2") String username2,
+            @Field("telefono") String telefono,
+            @Field("passw") String passw
+    );
+
+    @FormUrlEncoded
+    @POST("UpdateProduct")
+    Call<Medicina> editarProducto(
+            @Field("nombre1") String nombre1,
+            @Field("nombre2") String nombre2,
+            @Field("descripcion") String descripcion,
+            @Field("cantidad") int cantidad,
+            @Field("precio") String precio
+    );
 
 }

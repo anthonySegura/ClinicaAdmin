@@ -20,6 +20,14 @@
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/nombre"
+            android:id="@+id/agregarNombre"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/descripcion"
             android:id="@+id/agregarDescripcion"
             android:layout_gravity="center_horizontal" />
@@ -31,14 +39,6 @@
             android:hint="@string/precio"
             android:inputType="number"
             android:id="@+id/agregarPrecio"
-            android:layout_gravity="center_horizontal" />
-
-        <EditText
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nombre"
-            android:id="@+id/agregarNombre"
             android:layout_gravity="center_horizontal" />
 
         <EditText

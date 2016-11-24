@@ -1,6 +1,5 @@
 package tec.farmaciaadmin;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,11 +21,7 @@ import tec.clases.UsuarioCliente;
 
 public class VerClientes extends AppCompatActivity {
 
-
-    //Clientes de prueba
-
     ListView clientes;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +29,13 @@ public class VerClientes extends AppCompatActivity {
         setContentView(R.layout.activity_ver_clientes);
         getClients();
         clientes = (ListView)findViewById(R.id.clientes);
-        //ClientAdapter adapter = new ClientAdapter(this, arrayUsuarioClientes);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getClients();
     }
 
     @Override

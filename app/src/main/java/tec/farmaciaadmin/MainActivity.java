@@ -1,6 +1,8 @@
 package tec.farmaciaadmin;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
@@ -26,8 +28,7 @@ import tec.Retrofit.RetrofitClient;
 public class MainActivity extends AppCompatActivity {
 
     ListView medicinas;
-    //String [] datos = {"Ibuprofeno" ,"Acetaminofen","Panadol", "Alka Ad", "Curitas", "Vitamina C"};
-
+    List<Medicina> medicinas_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         //medicinas.setAdapter(null);
         this.registerForContextMenu(medicinas);
 
-        //Evento de los items del listView
+        //Evento normal de los items del listView
         medicinas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
@@ -51,13 +52,19 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
 
                         if (item.getItemId() == R.id.popEditar){
+
+                            Bundle bundle = new Bundle();
+                            Medicina med = medicinas_data.get(position);
+                            bundle.putString("nombreMedicamento", med.getNombreMedicamento());
+                            bundle.putString("descripcion", med.getDescripcion());
+                            bundle.putInt("cantidad", med.getCantidad());
+                            bundle.putString("precioUnidad", med.getPrecioUnidad());
                             Intent intent = new Intent(getApplicationContext(), EditarProducto.class);
+                            intent.putExtras(bundle);
                             startActivity(intent);
                         }
                         else if (item.getItemId() == R.id.popEliminar){
-                            //Accion eliminar
-                            String id = medicinas.getAdapter().getItem(position).toString();
-                            eliminarMedicina(id);
+                            confirmar_eliminar(position);
                         }
                         return true;
                     }
@@ -66,9 +73,21 @@ public class MainActivity extends AppCompatActivity {
                 popupMenu.show();
             }
         });
+
+        medicinas.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                //Accion eliminar
+                String _id = medicinas.getAdapter().getItem(position).toString();
+                eliminarMedicina(_id);
+                return true;
+            }
+        });
     }
 
-    //Configuracion del menu
+    /**
+     * Configuracion del menu
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -82,7 +101,11 @@ public class MainActivity extends AppCompatActivity {
         getProducts();
     }
 
-    //Acciones del menu
+    /**
+     * Acciones del menu
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -103,7 +126,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Funcion del Dialog
+     */
+    private void confirmar_eliminar(final int position) {
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+        dialogo1.setTitle("Importante");
+        dialogo1.setMessage("¿ Desea eliminar el cliente ?");
+        dialogo1.setCancelable(false);
+        dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+                //Accion eliminar
+                String _id = medicinas_data.get(position).getNombreMedicamento();
+                eliminarMedicina(_id);
 
+            }
+        });
+        dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+
+            }
+        });
+        dialogo1.show();
+    }
+
+
+    /**
+     * Carga todas las medicinas desde el WS en el listView
+     */
     private void getProducts(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(RetrofitClient.URL_BASE)
@@ -116,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Medicina>>() {
             @Override
             public void onResponse(Response<List<Medicina>> response, Retrofit retrofit) {
-                List<Medicina> medicinas_data = response.body();
+                medicinas_data = response.body();
                 String [] datos = new String[medicinas_data.size()];
 
                 for(int i = 0; i < medicinas_data.size(); i++){
@@ -137,6 +187,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Borra la medicina del WS
+     * @param id
+     */
     private void eliminarMedicina(String id){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(RetrofitClient.URL_BASE)

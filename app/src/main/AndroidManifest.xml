@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tec.farmaciaadmin">
 
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +29,8 @@
             android:label="Clientes" />
         <activity
             android:name=".NuevoUsuario"
-            android:label="Nuevo Cliente"></activity>
+            android:label="Nuevo Cliente" />
+        <activity android:name=".EditarCliente"></activity>
     </application>
 
 </manifest>
