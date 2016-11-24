@@ -164,7 +164,7 @@ public class ClientAdapter extends ArrayAdapter<UsuarioCliente> {
             @Override
             public void onFailure(Throwable t) {
 
-                Toast toast = Toast.makeText(getContext(),"Error de conexion", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getContext(),"Error", Toast.LENGTH_LONG);
                 toast.show();
             }
         });
