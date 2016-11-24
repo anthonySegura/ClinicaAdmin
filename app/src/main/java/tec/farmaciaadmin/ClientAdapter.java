@@ -97,11 +97,11 @@ public class ClientAdapter extends ArrayAdapter<UsuarioCliente> {
      * Funcion del Dialog
      */
     private void confirmar_eliminar(final int position) {
-        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getContext());
-        dialogo1.setTitle("Importante");
-        dialogo1.setMessage("¿ Desea eliminar el cliente ?");
-        dialogo1.setCancelable(false);
-        dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(getContext());
+        dialogo.setTitle("Importante");
+        dialogo.setMessage("¿ Desea eliminar el cliente ?");
+        dialogo.setCancelable(false);
+        dialogo.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
                 //Eliminar del WS
                 String _id = itemsArrayList.get(position).getUsername();
@@ -109,12 +109,13 @@ public class ClientAdapter extends ArrayAdapter<UsuarioCliente> {
 
             }
         });
-        dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+
+        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
 
             }
         });
-        dialogo1.show();
+        dialogo.show();
     }
 
 
@@ -157,6 +158,7 @@ public class ClientAdapter extends ArrayAdapter<UsuarioCliente> {
             @Override
             public void onResponse(Response<String> response, Retrofit retrofit) {
                 System.out.println("OK");
+                ((VerClientes)context).reloadListViewData();
             }
 
             @Override

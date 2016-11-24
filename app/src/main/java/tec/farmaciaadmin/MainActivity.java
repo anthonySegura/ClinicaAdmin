@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     /**
      * Carga todas las medicinas desde el WS en el listView
      */

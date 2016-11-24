@@ -48,6 +48,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/editarClienteTelefono"
             android:layout_gravity="center_horizontal" />
+        <Switch
+            android:layout_marginTop="60dp"
+            android:text="@string/Administrador"
+            android:layout_width="201dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:id="@+id/switchEditarUsuario" />
 
         <LinearLayout
             android:orientation="horizontal"

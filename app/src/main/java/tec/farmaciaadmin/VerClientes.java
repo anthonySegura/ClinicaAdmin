@@ -58,6 +58,10 @@ public class VerClientes extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void reloadListViewData(){
+        getClients();
+    }
+
     private ClientAdapter getAdapter(ArrayList<UsuarioCliente> data){
         ClientAdapter adapter = new ClientAdapter(this, data);
         return adapter;
@@ -92,7 +96,7 @@ public class VerClientes extends AppCompatActivity {
 
             @Override
             public void onFailure(Throwable t) {
-                Toast toast = Toast.makeText(getApplication(), "Error Mamón", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplication(), getString(R.string.error_conexion), Toast.LENGTH_LONG);
                 toast.show();
             }
         });
