@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Drug Store</string>
+    <string name="Administrador">Admin User</string>
+    <string name="cancelar">Cancel</string>
+    <string name="cantidad">Quantity</string>
+    <string name="contra">Password</string>
+    <string name="nuevo">New</string>
+    <string name="precio">Price</string>
+    <string name="telefono">Telephone Number</string>
+    <string name="nombreUsuario">Username</string>
+    <string name="nombre">Name</string>
+    <string name="guardar">Save</string>
+    <string name="error_conexion">Connection Error</string>
+    <string name="eliminar">Delete</string>
+    <string name="editar">Edit</string>
+    <string name="descripcion">Description</string>
+    <string name="NuevoProducto"> New Product</string>
+    <string name="Editar"> Edit</string>
+    <string name="Clientes"> Clients</string>
+    <string name="NuevoCliente"> New Client</string>
+    <string name="EditarCliente"> Edit Client</string>
+</resources>

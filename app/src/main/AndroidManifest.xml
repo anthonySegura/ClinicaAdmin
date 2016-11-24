@@ -20,17 +20,20 @@
         </activity>
         <activity
             android:name=".AgregarProducto"
-            android:label="Nuevo Producto" />
+            android:label="@string/NuevoProducto" />
         <activity
             android:name=".EditarProducto"
-            android:label="Editar" />
+            android:label="@string/Editar" />
         <activity
             android:name=".VerClientes"
-            android:label="Clientes" />
+            android:label="@string/Clientes" />
         <activity
             android:name=".NuevoUsuario"
-            android:label="Nuevo Cliente" />
-        <activity android:name=".EditarCliente"></activity>
+            android:label="@string/NuevoCliente" />
+        <activity android:name=".EditarCliente"
+            android:label="@string/EditarCliente"/>
+
+
     </application>
 
 </manifest>

@@ -14,4 +14,9 @@
     <string name="cantidad"> Cantidad</string>
     <string name="nombreUsuario"> Nombre de usuario</string>
     <string name="Administrador"> Usuario Administrador</string>
+    <string name="NuevoProducto"> Nuevo Producto</string>
+    <string name="Editar"> Editar</string>
+    <string name="Clientes"> Clientes</string>
+    <string name="NuevoCliente"> Nuevo Cliente</string>
+    <string name="EditarCliente"> Editar Cliente</string>
 </resources>
