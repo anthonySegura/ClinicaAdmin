@@ -21,5 +21,6 @@
             android:longClickable="true"
             android:layout_height="wrap_content"
             android:id="@+id/listaProductos" />
+
     </LinearLayout>
 </RelativeLayout>

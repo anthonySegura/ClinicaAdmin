@@ -1,6 +1,8 @@
 package tec.farmaciaadmin;
 
+import android.Manifest;
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -29,7 +31,10 @@ public class VerClientes extends AppCompatActivity {
         setContentView(R.layout.activity_ver_clientes);
         getClients();
         clientes = (ListView)findViewById(R.id.clientes);
-
+        int MY_PERMISSIONS_REQUEST_READ_CONTACTS=0;
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.CALL_PHONE},MY_PERMISSIONS_REQUEST_READ_CONTACTS
+        );
     }
 
     @Override
