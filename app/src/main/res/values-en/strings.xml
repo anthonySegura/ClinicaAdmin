@@ -18,6 +18,13 @@
     <string name="NuevoProducto"> New Product</string>
     <string name="Editar"> Edit</string>
     <string name="Clientes"> Clients</string>
-    <string name="NuevoCliente"> New Client</string>
+    <string name="NuevoCliente"> New User</string>
     <string name="EditarCliente"> Edit Client</string>
+    <string name="Departamento">Departament</string>
+    <string name="Salario">Salary</string>
+    <string name="Cedula">Identification</string>
+    <string name="Faltan_Datos">All fields are required</string>
+    <string name="Nuevo_Admin">New Admin added</string>
+    <string name="Cedula_Repetidad">The id is already registered</string>
+    <string name="Espere">Wait</string>
 </resources>

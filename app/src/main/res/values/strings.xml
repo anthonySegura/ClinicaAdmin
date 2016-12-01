@@ -17,6 +17,13 @@
     <string name="NuevoProducto"> Nuevo Producto</string>
     <string name="Editar"> Editar</string>
     <string name="Clientes"> Clientes</string>
-    <string name="NuevoCliente"> Nuevo Cliente</string>
+    <string name="NuevoCliente"> Nuevo Usuario</string>
     <string name="EditarCliente"> Editar Cliente</string>
+    <string name="Departamento">Departamento</string>
+    <string name="Salario">Salario</string>
+    <string name="Cedula">Cédula</string>
+    <string name="Faltan_Datos">Todos los campos son necesarios</string>
+    <string name="Nuevo_Admin">Nuevo Administrador Agregado</string>
+    <string name="Cedula_Repetidad">La cédula ya está registrada</string>
+    <string name="Espere">Espere</string>
 </resources>

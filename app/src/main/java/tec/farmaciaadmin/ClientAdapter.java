@@ -184,6 +184,5 @@ public class ClientAdapter extends ArrayAdapter<UsuarioCliente> {
                 toast.show();
             }
         });
-
     }
 }

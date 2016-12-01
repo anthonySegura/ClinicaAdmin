@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +13,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:weightSum="1">
 
         <EditText
             android:layout_marginTop="20dp"
@@ -23,7 +25,7 @@
             android:layout_gravity="center_horizontal" />
 
         <EditText
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:hint="@string/nombreUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +33,7 @@
             android:layout_gravity="center_horizontal" />
 
         <EditText
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:hint="@string/contra"
             android:inputType="textPassword"
@@ -40,7 +42,7 @@
             android:layout_gravity="center_horizontal" />
 
         <EditText
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:hint="@string/telefono"
             android:inputType="number"
             android:layout_width="match_parent"
@@ -49,33 +51,41 @@
             android:layout_gravity="center_horizontal" />
 
         <Switch
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="20dp"
             android:text="@string/Administrador"
             android:layout_width="201dp"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:id="@+id/switchNuevoUsuario" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:gravity="center"
+        <EditText
+            android:layout_marginTop="10dp"
+            android:hint="@string/Cedula"
+            android:inputType="number"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:id="@+id/nuevoAdmiCedula"
+            android:layout_gravity="center_horizontal" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/guardar"
-                android:id="@+id/nuevoClienteBtnGuardar"
-                android:layout_gravity="bottom" />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:hint="@string/Departamento"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:id="@+id/nuevoAdminDepartamento"
+            android:layout_gravity="center_horizontal" />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:hint="@string/Salario"
+            android:inputType="number"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nuevoAdminSalario"
+            android:layout_gravity="center_horizontal" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cancelar"
-                android:id="@+id/nuevoClienteBtnCancelar"
-                android:layout_gravity="bottom" />
-        </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+</ScrollView>

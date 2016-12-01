@@ -9,6 +9,7 @@ import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Query;
+import tec.clases.Administrador;
 import tec.clases.Medicina;
 import tec.clases.UsuarioCliente;
 
@@ -33,9 +34,13 @@ public interface RetrofitClient {
     @GET("GetAllClients")
     Call<List<UsuarioCliente>> cargarClientes();
 
+
     @GET("BorrarUsuario")
     Call<String> borrarUsuario(@Query("username") String id);
 
+
+    @GET("ComprobarCedula")
+    Call<RequestResponse> comprobarCedula(@Query("cedula") String cedula);
 
     //Metodos POST
 
@@ -57,6 +62,17 @@ public interface RetrofitClient {
             @Field("passw") String passw
     );
 
+    @FormUrlEncoded
+    @POST("CreateAdmin")
+    Call<Administrador> agregarAdmin(
+            @Field("nombre") String nombre,
+            @Field("username") String username,
+            @Field("telefono") String telefono,
+            @Field("passw") String passw,
+            @Field("cedula") String cedula,
+            @Field("departamento") String departamento,
+            @Field("salario") String salario
+    );
 
     @FormUrlEncoded
     @POST("UpdateClient")
